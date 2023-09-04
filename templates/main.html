@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>{{ title|capfirst|title }}</h3>
+    <h4>Hello! This is the main page</h4>
+    <p>
+        {{ my_html|safe }} #mark_save if was done in view
+        {{ my_number }}
+    </p>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+    </ul>
+    <ul>
+    {% for my_sub_item in my_list %}
+        {% if abc == True %}
+             <li>{{ forloop.counter }}. {{ my_sub_item|add:22 }}</li>
+        {% elif True %}
+        <li>{{ forloop.counter }}. {{ my_sub_item }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock content %}
